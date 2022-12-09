@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "courseId": {
+                    "type": "string"
+                },
+                "customerIdentifier": {
+                    "type": "string"
+                },
+                "deadline": {
+                    "format": "date-time",
+                    "type": "string",
+                    "nullable": true
+                }
+            },
+            "required": [
+                "courseId",
+                "customerIdentifier"
+            ]
+        }
+    }
+}

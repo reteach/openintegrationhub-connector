@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "customerExportId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

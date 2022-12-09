@@ -1,0 +1,30 @@
+{
+    "version": "1.0.0",
+    "main": "component.json",
+    "dependencies": {
+        "@openintegrationhub/ferryman": "2.1.0",
+        "swagger-client": "^3.8.22",
+        "dayjs": "^1.10.7"
+    },
+    "devDependencies": {
+        "eslint": "8.8.0",
+        "eslint-config-airbnb-base": "15.0.0",
+        "eslint-plugin-import": "2.25.4",
+        "eslint-plugin-jest": "22.1.0",
+        "eslint-plugin-json": "1.4.0",
+        "eslint-plugin-mocha": "5.2.0"
+    },
+    "author": {
+        "name": "Open Integration Hub"
+    },
+    "license": "Apache-2.0",
+    "name": "reteach",
+    "description": "This document describes all endpoints of the reteach Rest API. To use them, you have to <a href=\"https://www.notion.so/reteach/REST-API-Access-and-Authentication-eb420cb4a8474b77a6527d19e7db00f2\" taget=\"_blank\">obtain a bearer token</a> for your reteach account.\n      The OpenAPI Specification of the API can be found <a href=\"https://api.reteach.io/docs-json\" taget=\"_blank\">here</a>.",
+    "scripts": {
+        "start": "node ./node_modules/@openintegrationhub/ferryman/runGlobal.js",
+        "pretest": "eslint lib test --ext .js --ext .json --fix",
+        "test": "NODE_ENV=test mocha test/* --timeout 10000",
+        "test-watch": "nodemon --exec \"npm test \" ",
+        "lint": "eslint --fix 'lib/**/*.js'"
+    }
+}

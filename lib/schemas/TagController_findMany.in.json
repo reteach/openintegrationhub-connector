@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "page": {
+            "required": false,
+            "default": 1,
+            "type": "number"
+        },
+        "limit": {
+            "required": false,
+            "default": 25,
+            "type": "number"
+        }
+    }
+}

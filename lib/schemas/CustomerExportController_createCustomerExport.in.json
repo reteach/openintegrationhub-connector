@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "nullable": true,
+                    "enum": [
+                        "XLSX",
+                        "CSV"
+                    ],
+                    "default": "CSV"
+                },
+                "includeTags": {
+                    "type": "boolean",
+                    "nullable": true,
+                    "default": false
+                },
+                "includeParticipations": {
+                    "type": "boolean",
+                    "nullable": true,
+                    "default": false
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "target": {
+            "type": "string"
+        },
+        "event": {
+            "type": "string",
+            "enum": [
+                "customer.created",
+                "customer.updated",
+                "customer.deleted",
+                "participation.created",
+                "participation.completed",
+                "certificate.processed",
+                "customer_export.processed",
+                "customer_import.processed",
+                "course.created",
+                "course.updated",
+                "course.deleted",
+                "live_course.created",
+                "live_course.updated",
+                "live_course.deleted",
+                "customer_to_tag.assigned",
+                "customer_to_tag.removed",
+                "tag.created",
+                "order.committed"
+            ]
+        }
+    },
+    "required": [
+        "id",
+        "target",
+        "event"
+    ]
+}

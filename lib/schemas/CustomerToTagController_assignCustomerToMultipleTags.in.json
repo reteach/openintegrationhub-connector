@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "customerIdentifier": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "mode": {
+                    "type": "string",
+                    "enum": [
+                        "ADD",
+                        "REPLACE"
+                    ],
+                    "nullable": true
+                }
+            },
+            "required": [
+                "tags",
+                "mode"
+            ]
+        }
+    }
+}

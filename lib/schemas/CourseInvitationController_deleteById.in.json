@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "courseInvitationId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

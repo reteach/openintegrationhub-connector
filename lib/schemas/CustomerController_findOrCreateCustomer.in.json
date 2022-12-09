@@ -1,0 +1,95 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "lastName": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "displayName": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "email": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "userName": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "externalId": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "company": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "birthDate": {
+                    "format": "date-time",
+                    "type": "string",
+                    "nullable": true
+                },
+                "department": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "gender": {
+                    "type": "string",
+                    "enum": [
+                        "MALE",
+                        "FEMALE",
+                        "DIVERSE"
+                    ],
+                    "nullable": true
+                },
+                "language": {
+                    "type": "string",
+                    "enum": [
+                        "EN",
+                        "DE",
+                        "FR",
+                        "ES",
+                        "IT",
+                        "UK",
+                        "RU"
+                    ],
+                    "nullable": true
+                },
+                "authenticationMethod": {
+                    "type": "string",
+                    "enum": [
+                        "DEFAULT",
+                        "SSO"
+                    ],
+                    "nullable": true
+                },
+                "note": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "setActiveAt": {
+                    "format": "date-time",
+                    "type": "string",
+                    "nullable": true
+                },
+                "setInactiveAt": {
+                    "format": "date-time",
+                    "type": "string",
+                    "nullable": true
+                },
+                "expiredNotificationMail": {
+                    "type": "string",
+                    "nullable": true
+                }
+            }
+        }
+    }
+}

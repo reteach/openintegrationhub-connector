@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "baseUrl": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "id",
+        "baseUrl"
+    ]
+}

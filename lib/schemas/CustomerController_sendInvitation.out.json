@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+        "isSucceeded": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "isSucceeded"
+    ]
+}

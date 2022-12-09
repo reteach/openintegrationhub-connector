@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string",
+            "nullable": false
+        },
+        "notificationMail": {
+            "type": "string",
+            "nullable": true
+        }
+    },
+    "required": [
+        "id",
+        "name"
+    ]
+}

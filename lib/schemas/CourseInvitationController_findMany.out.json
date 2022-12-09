@@ -1,0 +1,428 @@
+{
+    "type": "object",
+    "properties": {
+        "results": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "isMandatory": {
+                        "type": "boolean",
+                        "nullable": false,
+                        "default": false
+                    },
+                    "deadline": {
+                        "format": "date-time",
+                        "type": "string",
+                        "nullable": true,
+                        "default": null
+                    },
+                    "isRolling": {
+                        "type": "boolean",
+                        "nullable": false,
+                        "default": false
+                    },
+                    "isRollingRelative": {
+                        "type": "boolean",
+                        "nullable": false,
+                        "default": false
+                    },
+                    "rollingIntervalUnit": {
+                        "type": "string",
+                        "enum": [
+                            "DAYS",
+                            "WEEKS",
+                            "MONTHS",
+                            "YEARS"
+                        ],
+                        "nullable": true,
+                        "default": null
+                    },
+                    "rollingInterval": {
+                        "type": "number",
+                        "nullable": true,
+                        "default": null
+                    },
+                    "firstRollingParticipationAccessTimeUnit": {
+                        "type": "string",
+                        "enum": [
+                            "DAYS",
+                            "WEEKS",
+                            "MONTHS",
+                            "YEARS"
+                        ],
+                        "nullable": true,
+                        "default": null
+                    },
+                    "firstRollingParticipationAccessTime": {
+                        "type": "number",
+                        "nullable": true,
+                        "default": null
+                    },
+                    "followingRollingParticipationAccessTimeUnit": {
+                        "type": "string",
+                        "enum": [
+                            "DAYS",
+                            "WEEKS",
+                            "MONTHS",
+                            "YEARS"
+                        ],
+                        "nullable": true,
+                        "default": null
+                    },
+                    "followingRollingParticipationAccessTime": {
+                        "type": "number",
+                        "nullable": true,
+                        "default": null
+                    },
+                    "isNotificationEnabled": {
+                        "type": "boolean",
+                        "nullable": true,
+                        "default": null
+                    },
+                    "isCertificateEnabled": {
+                        "type": "boolean",
+                        "nullable": false,
+                        "default": false
+                    },
+                    "certificateExpiresAfter": {
+                        "type": "number",
+                        "nullable": true,
+                        "default": null
+                    },
+                    "certificateExpiresAfterUnit": {
+                        "type": "string",
+                        "enum": [
+                            "DAYS",
+                            "WEEKS",
+                            "MONTHS",
+                            "YEARS"
+                        ],
+                        "nullable": true,
+                        "default": null
+                    },
+                    "course": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "status": {
+                                "type": "string",
+                                "enum": [
+                                    "DRAFT",
+                                    "PRIVATE",
+                                    "PUBLIC"
+                                ]
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "SINGLE_DAY_ONLINE_COURSE",
+                                    "MULTIPLE_DAYS_ONLINE_COURSE",
+                                    "ONLINE_COURSE",
+                                    "SINGLE_DAY_PRESENCE_TRAINING",
+                                    "MULTIPLE_DAYS_PRESENCE_TRAINING",
+                                    "SINGLE_DAY_LIVE_TRAINING",
+                                    "MULTIPLE_DAYS_LIVE_TRAINING",
+                                    "SINGLE_DAY_HYBRID_TRAINING",
+                                    "MULTIPLE_DAYS_HYBRID_TRAINING"
+                                ]
+                            },
+                            "startsAt": {
+                                "format": "date-time",
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "endsAt": {
+                                "format": "date-time",
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "image": {
+                                "default": null,
+                                "nullable": true,
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "width": {
+                                                "type": "number"
+                                            },
+                                            "height": {
+                                                "type": "number"
+                                            },
+                                            "thumbnails": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string"
+                                                        },
+                                                        "width": {
+                                                            "type": "number"
+                                                        },
+                                                        "height": {
+                                                            "type": "number"
+                                                        },
+                                                        "format": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "JPEG",
+                                                                "PNG",
+                                                                "WEBP",
+                                                                "GIF",
+                                                                "SVG"
+                                                            ]
+                                                        },
+                                                        "url": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "width",
+                                                        "height",
+                                                        "format",
+                                                        "url"
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "id",
+                                            "width",
+                                            "height",
+                                            "thumbnails"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "url": {
+                                "type": "string"
+                            },
+                            "editUrl": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name",
+                            "status",
+                            "type",
+                            "url",
+                            "editUrl"
+                        ]
+                    },
+                    "customer": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "userName": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "firstName": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "lastName": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "displayName": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "language": {
+                                "type": "string",
+                                "enum": [
+                                    "EN",
+                                    "DE",
+                                    "FR",
+                                    "ES",
+                                    "IT",
+                                    "UK",
+                                    "RU"
+                                ],
+                                "nullable": true
+                            },
+                            "company": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "birthDate": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "department": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "gender": {
+                                "type": "string",
+                                "enum": [
+                                    "MALE",
+                                    "FEMALE",
+                                    "DIVERSE"
+                                ],
+                                "nullable": true
+                            },
+                            "externalId": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "note": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "expiredNotificationMail": {
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "source": {
+                                "type": "string",
+                                "enum": [
+                                    "MANUAL",
+                                    "OPTIN",
+                                    "SAML",
+                                    "OIDC",
+                                    "ORDER",
+                                    "IMPORT",
+                                    "REST_API"
+                                ]
+                            },
+                            "authenticationMethod": {
+                                "type": "string",
+                                "enum": [
+                                    "DEFAULT",
+                                    "SSO"
+                                ]
+                            },
+                            "setActiveAt": {
+                                "format": "date-time",
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "setInactiveAt": {
+                                "format": "date-time",
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "lastLoginAt": {
+                                "format": "date-time",
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "status": {
+                                "type": "string",
+                                "enum": [
+                                    "ADDED",
+                                    "INVITED",
+                                    "ACTIVE",
+                                    "INACTIVE"
+                                ]
+                            },
+                            "registeredAt": {
+                                "format": "date-time",
+                                "type": "string",
+                                "nullable": false
+                            },
+                            "tags": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "id",
+                                        "name"
+                                    ]
+                                }
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "source",
+                            "authenticationMethod",
+                            "status",
+                            "registeredAt",
+                            "tags"
+                        ]
+                    },
+                    "customerGroup": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string",
+                                "nullable": false
+                            },
+                            "notificationMail": {
+                                "type": "string",
+                                "nullable": true
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "name"
+                        ]
+                    }
+                },
+                "required": [
+                    "id",
+                    "isMandatory",
+                    "deadline",
+                    "isRolling",
+                    "isRollingRelative",
+                    "rollingIntervalUnit",
+                    "rollingInterval",
+                    "firstRollingParticipationAccessTimeUnit",
+                    "firstRollingParticipationAccessTime",
+                    "followingRollingParticipationAccessTimeUnit",
+                    "followingRollingParticipationAccessTime",
+                    "isNotificationEnabled",
+                    "isCertificateEnabled",
+                    "certificateExpiresAfter",
+                    "certificateExpiresAfterUnit",
+                    "course"
+                ]
+            }
+        },
+        "resultCount": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "results",
+        "resultCount"
+    ]
+}

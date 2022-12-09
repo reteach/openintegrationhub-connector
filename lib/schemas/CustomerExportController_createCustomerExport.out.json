@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "format": {
+            "type": "string",
+            "enum": [
+                "XLSX",
+                "CSV"
+            ]
+        },
+        "includeTags": {
+            "type": "boolean"
+        },
+        "includeParticipations": {
+            "type": "boolean"
+        },
+        "url": {
+            "type": "string"
+        },
+        "size": {
+            "type": "number"
+        },
+        "startedAt": {
+            "format": "date-time",
+            "type": "string"
+        },
+        "failedAt": {
+            "format": "date-time",
+            "type": "string"
+        },
+        "completedAt": {
+            "format": "date-time",
+            "type": "string"
+        },
+        "count": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "id",
+        "format",
+        "includeTags",
+        "includeParticipations"
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "tagIdOrName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        }
+    }
+}

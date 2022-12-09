@@ -1,0 +1,504 @@
+{
+    "title": "reteach Rest API Documentation",
+    "description": "This document describes all endpoints of the reteach Rest API. To use them, you have to <a href=\"https://www.notion.so/reteach/REST-API-Access-and-Authentication-eb420cb4a8474b77a6527d19e7db00f2\" taget=\"_blank\">obtain a bearer token</a> for your reteach account.\n      The OpenAPI Specification of the API can be found <a href=\"https://api.reteach.io/docs-json\" taget=\"_blank\">here</a>.",
+    "docsUrl": "",
+    "url": "https://api.reteach.io/docs-json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.reteach.io",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_bearerAuth": {
+                "label": "bearerAuth (JWT)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "lookup": {
+            "main": "./lib/lookups/lookup.js",
+            "title": "Function to run a lookup",
+            "description": "Function to call an internal trigger or action"
+        },
+        "CustomerController_findCustomer": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of customers",
+            "callParams": {
+                "pathName": "/customer",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerController_findCustomer.in.json",
+                "out": "./lib/schemas/CustomerController_findCustomer.out.json"
+            }
+        },
+        "CourseController_findManyAndCount": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of courses",
+            "callParams": {
+                "pathName": "/course",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CourseController_findManyAndCount.in.json",
+                "out": "./lib/schemas/CourseController_findManyAndCount.out.json"
+            }
+        },
+        "ProductVariantOrderController_findManyAndCount": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of e-commerce orders",
+            "callParams": {
+                "pathName": "/v1/order",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProductVariantOrderController_findManyAndCount.in.json",
+                "out": "./lib/schemas/ProductVariantOrderController_findManyAndCount.out.json"
+            }
+        },
+        "CustomerCourseParticipationController_findMany": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of participations",
+            "callParams": {
+                "pathName": "/participation",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerCourseParticipationController_findMany.in.json",
+                "out": "./lib/schemas/CustomerCourseParticipationController_findMany.out.json"
+            }
+        },
+        "EditorController_me": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves the currently authenticated academy",
+            "callParams": {
+                "pathName": "/me",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/EditorController_me.in.json",
+                "out": "./lib/schemas/EditorController_me.out.json"
+            }
+        },
+        "CustomerExportController_findCustomerExports": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of customer exports",
+            "callParams": {
+                "pathName": "/customer-export",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerExportController_findCustomerExports.in.json",
+                "out": "./lib/schemas/CustomerExportController_findCustomerExports.out.json"
+            }
+        },
+        "RestHookController_findSubscriptions": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of webhooks",
+            "callParams": {
+                "pathName": "/subscription",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/RestHookController_findSubscriptions.in.json",
+                "out": "./lib/schemas/RestHookController_findSubscriptions.out.json"
+            }
+        },
+        "CourseInvitationController_findMany": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of course invitations",
+            "callParams": {
+                "pathName": "/v1/course-invitation",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CourseInvitationController_findMany.in.json",
+                "out": "./lib/schemas/CourseInvitationController_findMany.out.json"
+            }
+        },
+        "CustomerGroupController_findMany": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of customer groups",
+            "callParams": {
+                "pathName": "/v1/customer-group",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerGroupController_findMany.in.json",
+                "out": "./lib/schemas/CustomerGroupController_findMany.out.json"
+            }
+        },
+        "TagController_findMany": {
+            "main": "./lib/triggers/trigger.js",
+            "title": "Retrieves a list of tags",
+            "callParams": {
+                "pathName": "/tags",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/TagController_findMany.in.json",
+                "out": "./lib/schemas/TagController_findMany.out.json"
+            }
+        }
+    },
+    "actions": {
+        "TagController_updateTagByIdOrName": {
+            "main": "./lib/actions/action.js",
+            "title": "Updates a single tag",
+            "callParams": {
+                "pathName": "/tags/{tagIdOrName}",
+                "method": "put",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/TagController_updateTagByIdOrName.in.json",
+                "out": "./lib/schemas/TagController_updateTagByIdOrName.out.json"
+            }
+        },
+        "CustomerController_sendInvitation": {
+            "main": "./lib/actions/action.js",
+            "title": "Triggers an email invitation for a customer",
+            "callParams": {
+                "pathName": "/customer/{customerIdentifier}/send-invitation",
+                "method": "post"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerController_sendInvitation.in.json",
+                "out": "./lib/schemas/CustomerController_sendInvitation.out.json"
+            }
+        },
+        "ProductVariantOrderController_findById": {
+            "main": "./lib/actions/action.js",
+            "title": "Retrieves a single e-commerce order",
+            "callParams": {
+                "pathName": "/v1/order/{orderId}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/ProductVariantOrderController_findById.in.json",
+                "out": "./lib/schemas/ProductVariantOrderController_findById.out.json"
+            }
+        },
+        "CustomerController_findOrCreateCustomer": {
+            "main": "./lib/actions/action.js",
+            "title": "Finds or creates a single customer",
+            "callParams": {
+                "pathName": "/customer",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerController_findOrCreateCustomer.in.json",
+                "out": "./lib/schemas/CustomerController_findOrCreateCustomer.out.json"
+            }
+        },
+        "CourseController_createCourse": {
+            "main": "./lib/actions/action.js",
+            "title": "Creates a single course",
+            "callParams": {
+                "pathName": "/course",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CourseController_createCourse.in.json",
+                "out": "./lib/schemas/CourseController_createCourse.out.json"
+            }
+        },
+        "CourseController_findById": {
+            "main": "./lib/actions/action.js",
+            "title": "Retrieves a single course",
+            "callParams": {
+                "pathName": "/course/{courseId}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CourseController_findById.in.json",
+                "out": "./lib/schemas/CourseController_findById.out.json"
+            }
+        },
+        "CustomerCourseParticipationController_findById": {
+            "main": "./lib/actions/action.js",
+            "title": "Retrieves a single participation",
+            "callParams": {
+                "pathName": "/participation/{participationId}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerCourseParticipationController_findById.in.json",
+                "out": "./lib/schemas/CustomerCourseParticipationController_findById.out.json"
+            }
+        },
+        "CustomerToTagController_assignCustomerToTag": {
+            "main": "./lib/actions/action.js",
+            "title": "Assigns a customer to a tag and creates the tag if it does not exist",
+            "callParams": {
+                "pathName": "/customer/{customerIdentifier}/tags",
+                "method": "put",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerToTagController_assignCustomerToTag.in.json",
+                "out": "./lib/schemas/CustomerToTagController_assignCustomerToTag.out.json"
+            }
+        },
+        "TagController_deleteCustomerTag": {
+            "main": "./lib/actions/action.js",
+            "title": "Deletes a single tag",
+            "callParams": {
+                "pathName": "/tags/{tagIdOrName}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/TagController_deleteCustomerTag.in.json",
+                "out": "./lib/schemas/TagController_deleteCustomerTag.out.json"
+            }
+        },
+        "CustomerToTagController_deleteCustomerTag": {
+            "main": "./lib/actions/action.js",
+            "title": "Removes a tag from a customer by customerIdentifier (id, email, or username) and tag",
+            "callParams": {
+                "pathName": "/customer/{customerIdentifier}/tags/{tagIdOrName}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerToTagController_deleteCustomerTag.in.json",
+                "out": "./lib/schemas/CustomerToTagController_deleteCustomerTag.out.json"
+            }
+        },
+        "CustomerExportController_createCustomerExport": {
+            "main": "./lib/actions/action.js",
+            "title": "Creates a single customer export",
+            "callParams": {
+                "pathName": "/customer-export",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerExportController_createCustomerExport.in.json",
+                "out": "./lib/schemas/CustomerExportController_createCustomerExport.out.json"
+            }
+        },
+        "CustomerCourseParticipationController_sendInvitation": {
+            "main": "./lib/actions/action.js",
+            "title": "Triggers an email course invitation for a customer",
+            "callParams": {
+                "pathName": "/participation/{participationId}/send-invitation",
+                "method": "post"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerCourseParticipationController_sendInvitation.in.json",
+                "out": "./lib/schemas/CustomerCourseParticipationController_sendInvitation.out.json"
+            }
+        },
+        "CustomerToTagController_assignCustomerToMultipleTags": {
+            "main": "./lib/actions/action.js",
+            "title": "Assigns multiple tags to a customer. Tags will be created if they do not exist.",
+            "callParams": {
+                "pathName": "/customer/{customerIdentifier}/multiple-tags",
+                "method": "put",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerToTagController_assignCustomerToMultipleTags.in.json",
+                "out": "./lib/schemas/CustomerToTagController_assignCustomerToMultipleTags.out.json"
+            }
+        },
+        "RestHookController_findSubscriptionById": {
+            "main": "./lib/actions/action.js",
+            "title": "Retrieves a single webhook by id",
+            "callParams": {
+                "pathName": "/subscription/{subscriptionId}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/RestHookController_findSubscriptionById.in.json",
+                "out": "./lib/schemas/RestHookController_findSubscriptionById.out.json"
+            }
+        },
+        "RestHookController_deleteSubscriptionById": {
+            "main": "./lib/actions/action.js",
+            "title": "Deletes a single webhook by id",
+            "callParams": {
+                "pathName": "/subscription/{subscriptionId}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/RestHookController_deleteSubscriptionById.in.json",
+                "out": "./lib/schemas/RestHookController_deleteSubscriptionById.out.json"
+            }
+        },
+        "RestHookController_createSubscription": {
+            "main": "./lib/actions/action.js",
+            "title": "Creates a webhook",
+            "callParams": {
+                "pathName": "/subscription",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/RestHookController_createSubscription.in.json",
+                "out": "./lib/schemas/RestHookController_createSubscription.out.json"
+            }
+        },
+        "CourseInvitationController_findById": {
+            "main": "./lib/actions/action.js",
+            "title": "Retrieves a single course invitation",
+            "callParams": {
+                "pathName": "/v1/course-invitation/{courseInvitationId}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CourseInvitationController_findById.in.json",
+                "out": "./lib/schemas/CourseInvitationController_findById.out.json"
+            }
+        },
+        "TagController_findOrCreate": {
+            "main": "./lib/actions/action.js",
+            "title": "Finds or creates a single tag",
+            "callParams": {
+                "pathName": "/tags",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/TagController_findOrCreate.in.json",
+                "out": "./lib/schemas/TagController_findOrCreate.out.json"
+            }
+        },
+        "CourseInvitationController_createCourseInvitation": {
+            "main": "./lib/actions/action.js",
+            "title": "Creates a single course invitation",
+            "callParams": {
+                "pathName": "/v1/course-invitation",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CourseInvitationController_createCourseInvitation.in.json",
+                "out": "./lib/schemas/CourseInvitationController_createCourseInvitation.out.json"
+            }
+        },
+        "CustomerExportController_findCustomerExportById": {
+            "main": "./lib/actions/action.js",
+            "title": "Retrieves a single customer export by id",
+            "callParams": {
+                "pathName": "/customer-export/{customerExportId}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerExportController_findCustomerExportById.in.json",
+                "out": "./lib/schemas/CustomerExportController_findCustomerExportById.out.json"
+            }
+        },
+        "CustomerGroupController_findById": {
+            "main": "./lib/actions/action.js",
+            "title": "Retrieves a single customer group",
+            "callParams": {
+                "pathName": "/v1/customer-group/{customerGroupId}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerGroupController_findById.in.json",
+                "out": "./lib/schemas/CustomerGroupController_findById.out.json"
+            }
+        },
+        "CourseInvitationController_sendInvitation": {
+            "main": "./lib/actions/action.js",
+            "title": "Triggers an email course invitation for an invitation",
+            "callParams": {
+                "pathName": "/v1/course-invitation/{courseInvitationId}/send-invitation",
+                "method": "post"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CourseInvitationController_sendInvitation.in.json",
+                "out": "./lib/schemas/CourseInvitationController_sendInvitation.out.json"
+            }
+        },
+        "CustomerController_updateCustomerById": {
+            "main": "./lib/actions/action.js",
+            "title": "Updates a single customer",
+            "callParams": {
+                "pathName": "/customer/{customerIdentifier}",
+                "method": "put",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerController_updateCustomerById.in.json",
+                "out": "./lib/schemas/CustomerController_updateCustomerById.out.json"
+            }
+        },
+        "CustomerGroupController_deleteById": {
+            "main": "./lib/actions/action.js",
+            "title": "Deletes a single customer group",
+            "callParams": {
+                "pathName": "/v1/customer-group/{customerGroupId}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerGroupController_deleteById.in.json",
+                "out": "./lib/schemas/CustomerGroupController_deleteById.out.json"
+            }
+        },
+        "CourseInvitationController_deleteById": {
+            "main": "./lib/actions/action.js",
+            "title": "Deletes a single course invitation",
+            "callParams": {
+                "pathName": "/v1/course-invitation/{courseInvitationId}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CourseInvitationController_deleteById.in.json",
+                "out": "./lib/schemas/CourseInvitationController_deleteById.out.json"
+            }
+        },
+        "CustomerGroupController_createOne": {
+            "main": "./lib/actions/action.js",
+            "title": "Creates a single customer group",
+            "callParams": {
+                "pathName": "/v1/customer-group",
+                "method": "post",
+                "requestContentType": "application/json"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerGroupController_createOne.in.json",
+                "out": "./lib/schemas/CustomerGroupController_createOne.out.json"
+            }
+        },
+        "CustomerController_deleteCustomer": {
+            "main": "./lib/actions/action.js",
+            "title": "Removes a single customer",
+            "callParams": {
+                "pathName": "/customer/{customerIdentifier}",
+                "method": "delete"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerController_deleteCustomer.in.json",
+                "out": "./lib/schemas/CustomerController_deleteCustomer.out.json"
+            }
+        },
+        "CustomerController_findCustomerById": {
+            "main": "./lib/actions/action.js",
+            "title": "Retrieves a single customer",
+            "callParams": {
+                "pathName": "/customer/{customerIdentifier}",
+                "method": "get"
+            },
+            "metadata": {
+                "in": "./lib/schemas/CustomerController_findCustomerById.in.json",
+                "out": "./lib/schemas/CustomerController_findCustomerById.out.json"
+            }
+        }
+    }
+}

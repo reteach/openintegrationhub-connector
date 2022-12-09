@@ -1,0 +1,148 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string",
+            "nullable": true
+        },
+        "userName": {
+            "type": "string",
+            "nullable": true
+        },
+        "firstName": {
+            "type": "string",
+            "nullable": true
+        },
+        "lastName": {
+            "type": "string",
+            "nullable": true
+        },
+        "displayName": {
+            "type": "string",
+            "nullable": true
+        },
+        "language": {
+            "type": "string",
+            "enum": [
+                "EN",
+                "DE",
+                "FR",
+                "ES",
+                "IT",
+                "UK",
+                "RU"
+            ],
+            "nullable": true
+        },
+        "company": {
+            "type": "string",
+            "nullable": true
+        },
+        "birthDate": {
+            "type": "string",
+            "nullable": true
+        },
+        "department": {
+            "type": "string",
+            "nullable": true
+        },
+        "gender": {
+            "type": "string",
+            "enum": [
+                "MALE",
+                "FEMALE",
+                "DIVERSE"
+            ],
+            "nullable": true
+        },
+        "externalId": {
+            "type": "string",
+            "nullable": true
+        },
+        "note": {
+            "type": "string",
+            "nullable": true
+        },
+        "expiredNotificationMail": {
+            "type": "string",
+            "nullable": true
+        },
+        "source": {
+            "type": "string",
+            "enum": [
+                "MANUAL",
+                "OPTIN",
+                "SAML",
+                "OIDC",
+                "ORDER",
+                "IMPORT",
+                "REST_API"
+            ]
+        },
+        "authenticationMethod": {
+            "type": "string",
+            "enum": [
+                "DEFAULT",
+                "SSO"
+            ]
+        },
+        "setActiveAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+        },
+        "setInactiveAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+        },
+        "lastLoginAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": true
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "ADDED",
+                "INVITED",
+                "ACTIVE",
+                "INACTIVE"
+            ]
+        },
+        "registeredAt": {
+            "format": "date-time",
+            "type": "string",
+            "nullable": false
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name"
+                ]
+            }
+        }
+    },
+    "required": [
+        "id",
+        "source",
+        "authenticationMethod",
+        "status",
+        "registeredAt",
+        "tags"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "customerIdentifier": {
+            "required": true,
+            "type": "string"
+        },
+        "tagIdOrName": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
